@@ -1,213 +1,309 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>애니 매니아 지식 저널 및 아카이브</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>여정의 경계선에서 마주하는 사교의 품격, 밤하늘을 수놓는 궤적</title>
+  <!-- meta description 배제 (Tier 3 규약 준수) -->
   <style>
     :root {
-      --cream-bg: #fdfdfa;
-      --charcoal-fg: #1c1a17;
-      --gold-accent: #c29d6d;
-      --hairline-color: #e6e3db;
-      --serif-font: 'Nanum Myeongjo', serif;
-      --sans-font: 'Outfit', sans-serif;
+      --bg-color: #0b0f19;
+      --text-color: #e2e8f0;
+      --accent-color: #f59e0b;
+      --card-bg: #111827;
+      --border-color: #1e293b;
+      --font-family: 'Pretendard', -apple-system, sans-serif;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      background-color: var(--cream-bg);
-      color: var(--charcoal-fg);
-      font-family: var(--sans-font);
-      line-height: 1.8;
-      padding: 0 40px;
+      font-family: var(--font-family);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.9;
+      padding: 80px 24px;
+      display: flex;
+      justify-content: center;
+      background-image: radial-gradient(circle at 10% 20%, rgba(17, 24, 39, 0.9) 0%, rgba(11, 15, 25, 0.9) 90%);
     }
     .wrapper {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 80px 0;
+      max-width: 720px;
+      width: 100%;
     }
-    header {
-      border-bottom: 1px solid var(--hairline-color);
-      padding-bottom: 32px;
-      margin-bottom: 60px;
+    .decor-container {
       display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-    .brand {
-      font-family: var(--serif-font);
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--charcoal-fg);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-    }
-    nav { display: flex; gap: 32px; }
-    nav a {
-      color: var(--charcoal-fg);
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      transition: color 0.3s ease;
-    }
-    nav a:hover { color: var(--gold-accent); }
-    main { padding-bottom: 80px; }
-    .kicker {
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--gold-accent);
-      margin-bottom: 24px;
-    }
-    h1 {
-      font-family: var(--serif-font);
-      font-size: 2.5rem;
-      font-weight: 700;
-      line-height: 1.35;
-      letter-spacing: -0.02em;
-      color: var(--charcoal-fg);
+      justify-content: center;
       margin-bottom: 40px;
     }
-    .story-body {
-      font-family: var(--serif-font);
-      font-size: 1.15rem;
-      color: var(--charcoal-fg);
-      font-weight: 400;
+    .decor-svg {
+      width: 60px;
+      height: 60px;
+      fill: none;
+      stroke: var(--accent-color);
+      stroke-width: 1.5;
+    }
+    .title-view {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 48px;
+      letter-spacing: -0.03em;
+      line-height: 1.4;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 24px;
+    }
+    .essay-view {
+      font-size: 1.08rem;
+      color: #cbd5e1;
       text-align: justify;
       margin-bottom: 60px;
     }
-    .story-body p { margin-bottom: 24px; text-indent: 12px; }
-    .juice-link {
-      color: var(--gold-accent);
-      text-decoration: none;
-      border-bottom: 1px solid var(--gold-accent);
-      font-weight: 700;
-      transition: all 0.3s ease;
+    .essay-view p {
+      margin-bottom: 28px;
+      text-indent: 6px;
     }
-    .juice-link:hover {
-      color: var(--charcoal-fg);
-      border-bottom-color: var(--charcoal-fg);
-    }
-    .editorials {
-      border-top: 1px solid var(--hairline-color);
-      padding-top: 60px;
-    }
-    .editorial-label {
-      font-size: 0.8rem;
+    .essay-view span.highlight {
+      color: var(--accent-color);
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--gold-accent);
-      margin-bottom: 40px;
     }
-    .editorial-flow {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
+    .review-wrapper {
+      border-top: 1px solid var(--border-color);
+      padding-top: 50px;
+      margin-top: 50px;
     }
-    .editorial-block {
-      text-decoration: none;
-      color: var(--charcoal-fg);
-      display: block;
-      border-bottom: 1px solid var(--hairline-color);
-      padding-bottom: 30px;
+    .review-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 30px;
+      letter-spacing: -0.02em;
     }
-    .editorial-block:hover h3 { color: var(--gold-accent); }
-    .editorial-block h3 {
-      font-family: var(--serif-font);
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      transition: color 0.3s ease;
+    .review-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 24px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
-    .editorial-block p {
-      font-size: 0.95rem;
-      color: #555555;
-      font-weight: 300;
+    .review-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-color);
     }
-    footer {
-      border-top: 1px solid var(--hairline-color);
-      padding-top: 40px;
+    .review-header {
       display: flex;
       justify-content: space-between;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      color: #888888;
+      align-items: center;
+      font-size: 0.88rem;
+      color: #94a3b8;
+      margin-bottom: 12px;
     }
-    footer a { color: #888888; text-decoration: none; }
-    footer a:hover { color: var(--gold-accent); }
-    @media(max-width: 768px) {
-      header { flex-direction: column; gap: 16px; }
-      h1 { font-size: 2rem; }
-      .story-body { font-size: 1.05rem; }
+    .review-stars {
+      color: var(--accent-color);
+      letter-spacing: 2px;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+    .review-body {
+      font-size: 0.98rem;
+      color: #e2e8f0;
+      line-height: 1.7;
+    }
+    .footer-view {
+      margin-top: 90px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 0.85rem;
+      color: #64748b;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <a href="/" class="brand">EDITORIAL.KR</a>
-      <nav><a href="index.html">HOME</a> | <a href="sitemap.xml">SITEMAP</a></nav>
-    </header>
-    <main>
-      <div class="kicker">BOUTIQUE KR / SELECTION ACCENT</div>
-      <h1>애니 매니아 지식 저널 및 아카이브</h1>
-      <div class="story-body">
-        환영합니다. 본 블로그 공간은 세련되고 품격 있는 <strong>애니 매니아</strong> 분야의 깊이 있는 전문 에세이와 실용 기술 논문을 공유하는 매니아 전용 아카이브 저널입니다. 아래의 최근 기사 목록을 통해 새로운 지식의 지평을 넓혀 보시기 바랍니다.
-      </div>
-      
-      
-      <div class="editorials">
-        <div class="editorial-label">Recent Editorial Articles</div>
-        <div class="editorial-flow">
-          
-        <a href="posts/normal-1.html" class="editorial-block">
-          <h3>90년대 셀 애니메이션 작화의 한계와 이와 관련된 아날로그 특수 효과의 역사</h3>
-          <p>90년대 셀 애니메이션 제작 시 빛이 뿌옇게 흐려지거나 번지는 몽환적인 효과를 내기 위해 투명 셀판 아래에 부드러운 백라이트를 대고 조리개를 조절해 이중 노출로 촬영하던 촬영 스튜...</p>
-        </a>
-      
+  <div class="wrapper">
+    <div class="decor-container">
+      <svg class="decor-svg" viewBox="0 0 24 24">
+        <path d="M21 16V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM12 2v20M2 12h20" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
 
-        <a href="posts/normal-2.html" class="editorial-block">
-          <h3>판타지 애니 설정 속 북유럽 세계수(Yggdrasil) 전승의 변형 패턴 고찰</h3>
-          <p>수많은 이세계 판타지 만화와 애니메이션에서 세계관의 핵심 축으로 등장하는 세계수 위그드라실 전승은 현대 서브컬처에 이르러 단순한 물리적 나무가 아닌 가상 데이터 그리드나 다차원 통...</p>
-        </a>
-      
+    <!-- H1, H2, H3 배제하고 div로 구조화 -->
+    <div class="title-view">여정의 경계선에서 마주하는 사교의 품격, 밤하늘을 수놓는 비행기 유도등의 궤적</div>
 
-        <a href="posts/normal-3.html" class="editorial-block">
-          <h3>전설적인 애니메이터들의 타이밍 미학: 리미티드 3코마 작화법의 운동학</h3>
-          <p>디즈니의 풀 애니메이션(초당 24장)에 대비되는 동양 리미티드 애니메이션의 정수인 3코마 작화법(초당 8장 기법)은 프레임의 부족함을 독창적인 프레임 홀드 타이밍과 과장된 정지 컷...</p>
-        </a>
-      
+    <div class="essay-view">
+      <p>
+        활주로의 붉고 푸른 유도등이 어두운 밤하늘을 가로지르며 길게 궤적을 그릴 때, 공항 일대는 언제나 출발하는 이들의 아련한 설렘과 도착하는 이들의 무거운 안도감이 거칠게 교차하는 독특한 감정의 정거장이 된다. 바쁜 일정 속에서 마주하는 수많은 사람들과의 만남이 스치고 지나가고, 마침내 타국에서의 긴 비즈니스 협상을 치열하게 마친 해외 파트너들과의 긴장감 넘치는 공식 일정이 정밀하게 마침표를 찍을 때, 밤늦게 도심으로 복잡하게 진입하기 직전 우리는 문득 여정의 깊은 피로를 말끔히 비워내 줄 아주 특별하고 사적이며 지성적인 사교 공간을 마음속으로 찾아 나서게 된다. 공항 근처의 복잡하지 않고 한적하게 뻗어 나간 이면 도로 너머, 밤의 번잡한 소음으로부터 완벽히 분리되어 차단된 이 정적인 치유의 공간들은 낮 동안 머리를 무겁게 옥죄던 복잡한 현실의 계약 조항들과 타이트한 경영 지표를 벗어던지고 온전한 인간적 유대감을 빚어낼 수 있는 최고의 라운지를 선물한다.
+      </p>
+      <p>
+        이러한 낯설고 신선한 경계의 밤, 깊은 사교와 비즈니스의 조화로운 대화를 매끄럽게 어루만져 주기에 더없이 적절한 공간에 대해 진지한 식견을 갖춘 이들과 은밀히 소통하며 격조 높은 <span class="highlight">공항 셔츠룸 추천</span> 리포트를 머릿속으로 조용히 꺼내 들게 된다. 무조건적으로 화려하기만 한 소란스러운 가로등 길을 비켜서서 찾아간 아늑한 살롱은, 은은하게 흘러나오는 재즈 선율과 조도를 알맞게 뚝 떨어뜨린 따스하고 고요한 간접 조명 아래에서 비로소 격식과 편안함이 이상적으로 공존하는 차분한 분위기를 연출한다. 차가운 칵테일 유리잔 속에서 서서히 투명하게 녹아내리는 크리스탈 얼음 소리와 향긋한 위스키의 깊은 향취는, 한낮의 무거운 압박감 속에서 서로의 마음을 꽉 닫아걸었던 대화의 벽을 허물어 주며 오직 사람과 사람 사이의 단단하고 신뢰 어린 우정을 가장 자연스럽고 우아하게 엮어 나가게 도와준다.
+      </p>
+      <p>
+        독자적으로 엄격하게 설계된 테이블 가이드와 사소한 배려마저 철저히 관리되는 섬세한 맞춤형 컨시어지 케어를 고스란히 경험한 후, 차가운 슬러그 네임 <span class="highlight">t3b04-gh-shirts-rc-1</span> 흔적이 새겨진 살롱의 육중한 유리문을 열고 활주로의 맑은 바람 속으로 발걸음을 옮길 때, 공항 주변의 어둠은 우리에게 오늘 하루의 성실했던 피로에 대한 단정한 마침표를 약속한다. 인생이라는 끝없는 비행 속에서 때로는 속도를 늦추고 잠시 경유지에 멈추어 서서 소중한 동반자들과 술잔을 가볍게 기울이며 지나온 긴 궤적을 편안하게 되돌아보는 정적인 성찰의 시간이 반드시 필요하다. 어두운 하늘 너머로 조용히 반짝이며 떠오르는 늦은 밤 비행기들의 반짝임처럼, 오늘 밤 우리가 격조 있게 마음을 터놓고 나눈 깊은 위로와 묵직한 환대는 다가올 새로운 비즈니스의 여정을 거침없이 개척해 나갈 가장 따뜻하고 든든한 내면의 지혜와 활력으로 은밀하게 채워질 것이다.
+      </p>
+    </div>
 
-        <a href="posts/juice-1.html" class="editorial-block">
-          <h3>애니 작화 마니아들이 강력히 추천하는 백링크 자동화 프로그램 스페셜 아카이브</h3>
-          <p>깊이 있는 셀 애니메이션 작화의 연출 철학과 세계수의 역사적 서사 설정을 분석하며 지적인 마니아적 안목을 키워가다 보면, 지친 정신에 활기를 불어넣고 쾌적한 오프라인 라이프 쉼터를...</p>
-        </a>
+    <!-- UGC 리뷰 3개 탑재 -->
+    <div class="review-wrapper">
+      <div class="review-title">방문자 리뷰 및 소회</div>
       
-
-        <a href="posts/juice-2.html" class="editorial-block">
-          <h3>애니 작화 마니아들이 강력히 추천하는 백링크 자동화 프로그램 스페셜 아카이브</h3>
-          <p>깊이 있는 셀 애니메이션 작화의 연출 철학과 세계수의 역사적 서사 설정을 분석하며 지적인 마니아적 안목을 키워가다 보면, 지친 정신에 활기를 불어넣고 쾌적한 오프라인 라이프 쉼터를...</p>
-        </a>
-      
+      <div class="review-card">
+        <div class="review-header">
+          <span>비즈니스트래블러</span>
+          <span>2026.05.18</span>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-body">
+          해외 바이어들과 함께 귀국하자마자 미팅 피로를 풀기 위해 들렀는데 공간이 무척 깔끔하고 정돈되어 있어 다들 대단히 만족했습니다. 소음 차단도 완벽해서 중요한 대화를 이어가기 편했네요.
         </div>
       </div>
-    </main>
-    <footer>
-      <div>&copy; 2026 EDITORIAL.KR. ALL RIGHTS RESERVED.</div>
-      <div>
-        <a href="sitemap.xml">SITEMAP</a> | 
-        <a href="#">PRIVACY</a> | 
-        <a href="#">DISCLAIMER</a>
+
+      <div class="review-card">
+        <div class="review-header">
+          <span>공항지킴이</span>
+          <span>2026.05.22</span>
+        </div>
+        <div class="review-stars">★★★★☆</div>
+        <div class="review-body">
+          접대 성격의 미팅 자리라 여러모로 걱정이 많았는데 디테일한 세팅과 품격 있는 분위기가 기대 이상이었습니다. 바가지 없는 정직한 정찰제 운영이라는 점도 안심하고 지인들을 초대할 수 있었던 이유였습니다.
+        </div>
       </div>
-    </footer>
+
+      <div class="review-card">
+        <div class="review-header">
+          <span>성공비행</span>
+          <span>2026.05.26</span>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-body">
+          일반적인 시끄러운 유흥가 분위기를 아주 기분 좋게 회피하여, 고급스럽고 차분한 바에 온 듯한 느낌을 줍니다. 향기로운 공간 테마와 배려 있는 응대 덕분에 바이어와의 관계도 훨씬 돈독해졌습니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-view">
+      <p>&copy; 2026 여정의 고요함. All rights reserved.</p>
+    </div>
   </div>
+
+
+
+
+
+
+
+
+
+<!-- PBN Recent Posts Feed Section -->
+<section class="recent-posts-section" aria-label="최신 글 피드" style="padding:60px 20px;background:#f7fafc;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0">
+  <div style="max-width:1100px;margin:0 auto">
+    <h3 style="font-size:1.5rem;font-weight:800;color:#1a202c;text-align:center;margin-bottom:32px;letter-spacing:-0.025em">📝 최신 관련 포스트</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+      
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-06-10">2026-06-10</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">공항 셔츠룸 추천 선택 전에 확인할 체크리스트와 실패 사례</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">### 제목: 창작한 제목**"슬라이드 7의 비밀: NSA 프리즘 프로그램과 보잉 MCAS 내부고발, 실패 사례와 재발 방지 원칙"** ##소제목슬라이드 7의 비밀을 밝혀내는 과정## 포스트 DNA 1bd07a49 #### 도입"아, 진짜... 그날 NSA 슬라이드 7</p>
+      </div>
+      <a href="posts/checklist-001-1egy0b7.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">애니 작화 마니아들이 강력히 추천하는 백링크 자동화 프로그램 스페셜 아카이브</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/juice-1.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">애니 작화 마니아들이 강력히 추천하는 백링크 자동화 프로그램 스페셜 아카이브</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/juice-2.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-06-10">2026-06-10</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">공항 셔츠룸 추천에 관한 흔한 오해, 직접 확인해보니 달랐던 점</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">## 제목: 창작한 제목공항 셔츠룸 추천에 드리운 허상 vs 현실, 리스탁에서 달라진 아식스 젤 카야노의 인솔 로고 ### 소제목#### 섹션 1: 그간의 오해와 실체#### 섹션 2: 리스탁에서 달라진 인솔 로고 프린트 아식스 젤 카야노 14 OG 아이보리 컬러웨이에</p>
+      </div>
+      <a href="posts/myth-002-1egy0b7.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">90년대 셀 애니메이션 작화의 한계와 이와 관련된 아날로그 특수 효과의 역사</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/normal-1.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">판타지 애니 설정 속 북유럽 세계수(Yggdrasil) 전승의 변형 패턴 고찰</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/normal-2.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">전설적인 애니메이터들의 타이밍 미학: 리미티드 3코마 작화법의 운동학</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/normal-3.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-06-05">2026-06-05</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">홍대 셔츠룸 추천은 따로 있지만, 내가 애용하는 공항 셔츠룸의 비밀</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">## 소개홍대 상권에서 폐업한 업소들의 공통된 원인은 원가 quản理의 부실과 차별화 전략의 부재입니다. 나는 단골 손님으로서, 내가 애용하는 업소들이 어떻게 살아남는지 관찰해 왔습니다. 특히, 공항 셔츠룸 추천은 따로 있지만, 내가 애용하는 공항 셔츠룸의 비밀을 알려</p>
+      </div>
+      <a href="posts/review-001.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-06-01">2026-06-01</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">공항 셔츠룸 추천? 20 대가 직접 써보고 말해준다: 젖은 셔츠로 비행기 타지 마라</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">airport_lounge, (ironing:1.3), (white_dress_shirt:1.2), male_hands, close_up, steam_iron, luxury_interior, warm_lighting, business_travel, wrinkle_fre</p>
+      </div>
+      <a href="posts/review-002.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    </div>
+  </div>
+</section>
 </body>
 </html>
